@@ -8,30 +8,28 @@ int main()
     scanf("%i", &n);
 
     int result = 0;
-    int *inputs = new int[n];
+    int min = 0;
+    int max = 0;
 
     for (int i=0; i < n; i++) {
         int user_input;
         scanf("%i", &user_input);
-        inputs[i] = user_input;
+
+        if (min <= 0) {
+            min = user_input;
+        }
+
+        if (user_input < min) {
+            min = user_input;
+        }
+
+        if (user_input > max) {
+            max = user_input;
+        }
 
         result = user_input + result;
     }
 
-    int min = inputs[0];
-    int max = 0;
-    
-    for (int i=0; i < n; i++) {
-        int currentElement = inputs[i];
-
-        if (currentElement < min) {
-            min = currentElement;
-        }
-
-        if (currentElement > max) {
-            max = currentElement;
-        }
-    }
 
     printf("Сумма введенных элементов: %i \n", result);
     printf("Среднее арифметическое: %i \n", result / n);
