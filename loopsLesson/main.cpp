@@ -8,25 +8,28 @@ int main()
     scanf("%i", &n);
 
     int result = 0;
-    int inputs[n];
+    int *inputs = new int[n];
 
     for (int i=0; i < n; i++) {
         int user_input;
-        inputs[i] = user_input;
         scanf("%i", &user_input);
+        inputs[i] = user_input;
 
         result = user_input + result;
     }
 
-    int min,max = 0;
+    int min = inputs[0];
+    int max = 0;
     
-    for (int i: inputs) {
-        if (i < min) {
-            min = i;
+    for (int i=0; i < n; i++) {
+        int currentElement = inputs[i];
+
+        if (currentElement < min) {
+            min = currentElement;
         }
 
-        if (i > min) {
-            max = i;
+        if (currentElement > max) {
+            max = currentElement;
         }
     }
 
