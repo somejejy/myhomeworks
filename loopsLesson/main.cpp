@@ -15,8 +15,9 @@ int main()
         int user_input;
         scanf("%i", &user_input);
 
-        if (min <= 0) {
+        if (i == 0) {
             min = user_input;
+            max = user_input;
         }
 
         if (user_input < min) {
